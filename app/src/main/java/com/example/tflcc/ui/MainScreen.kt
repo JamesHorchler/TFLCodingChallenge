@@ -55,10 +55,10 @@ fun MainScreen(viewModel: MainViewModel) {
                             TrainItem(item)
                             if (isExpanded) {
                                 Text(
-                                    text = item.lineStatuses[0].statusSeverityDescription + "\n" +
-                                            item.lineStatuses[0].reason,
+                                    text = item.lineStatuses.joinToString() {
+                                        it.statusSeverityDescription + "\n" + it.reason
+                                    },
                                     modifier = Modifier.padding(16.dp)
-
                                 )
                             }
                         }

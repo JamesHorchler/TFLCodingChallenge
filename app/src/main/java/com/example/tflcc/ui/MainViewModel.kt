@@ -34,7 +34,7 @@ class MainViewModel @Inject constructor(
         else Resource.Error(response.message())
     }
 
-    private fun getData() {
+    fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 _data.emit(Resource.Loading())
