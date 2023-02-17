@@ -3,7 +3,6 @@ package com.example.tflcc.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tflcc.model.Trainline
 import com.example.tflcc.model.TrainlineItemModel
 import com.example.tflcc.repository.Repository
 import com.example.tflcc.util.Resource
@@ -20,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: Repository
-): ViewModel() {
+) : ViewModel() {
 
     private var _data: MutableStateFlow<Resource<List<TrainlineItemModel>>> =
         MutableStateFlow(Resource.Loading())
@@ -35,18 +34,16 @@ class MainViewModel @Inject constructor(
         else Resource.Error(response.message())
     }
 
-    private fun getData(){
+    private fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 _data.emit(Resource.Loading())
                 val response = repository.getTrainsInfo()
                 _data.emit(handleResponse(response))
-                Log.i("getData", data.toString())
-
             } catch (e: HttpException) {
-                Log.i("getData", "Error here")
+                Log.i("error", "Error here")
             } catch (e: IOException) {
-                Log.i("getData", "Another error")
+                Log.i("error", "Another error")
             }
         }
     }

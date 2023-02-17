@@ -1,6 +1,5 @@
 package com.example.tflcc.ui
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
@@ -32,8 +31,10 @@ fun TrainItem(item: TrainlineItemModel) {
         "victoria" to "#01A0E2",
         "waterloo-city" to "#76D0BD"
     )
-    Card(modifier = Modifier
-        .border(1.dp, Color.LightGray)) {
+    Card(
+        modifier = Modifier
+            .border(1.dp, Color.LightGray)
+    ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
 
             Text(

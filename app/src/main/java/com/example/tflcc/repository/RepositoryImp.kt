@@ -15,7 +15,6 @@ class RepositoryImp @Inject constructor(
     private val trainsApi: TrainsApi
 ): Repository{
     override suspend fun getTrainsInfo(): Response<List<TrainlineItemModel>> {
-       // Log.i("getData", trainsApi.getTrains().toString()+ "Hello is it here??")
         return trainsApi.getTrains()
     }
 }

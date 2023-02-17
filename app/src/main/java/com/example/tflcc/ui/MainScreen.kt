@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -24,7 +23,7 @@ import com.example.tflcc.util.Resource
 fun MainScreen(viewModel: MainViewModel) {
 
     val list = viewModel.data.collectAsState().value
-    var expandedIndex by remember {mutableStateOf(-1)}
+    var expandedIndex by remember { mutableStateOf(-1) }
 
     Column(
         modifier = Modifier.padding(16.dp),
@@ -34,8 +33,9 @@ fun MainScreen(viewModel: MainViewModel) {
             "Train Updates",
             textAlign = TextAlign.Center,
             fontSize = 22.sp,
-            fontStyle = FontStyle.Italic
-        )
+            fontStyle = FontStyle.Italic,
+
+            )
 
         LazyColumn(
             modifier = Modifier.padding(top = 16.dp)
@@ -48,15 +48,15 @@ fun MainScreen(viewModel: MainViewModel) {
                         val isExpanded = index == expandedIndex
 
                         Column(modifier = Modifier
-                            .clickable{ expandedIndex = if (isExpanded) -1 else index}
+                            .clickable { expandedIndex = if (isExpanded) -1 else index }
                             .fillMaxWidth()
-                            .background(if (isExpanded) Color.LightGray else Color.White)) {
-
-
+                            .background(if (isExpanded) Color.LightGray else Color.White)
+                        ) {
                             TrainItem(item)
-                            if(isExpanded) {
+                            if (isExpanded) {
                                 Text(
-                                    text = item.lineStatuses[0].statusSeverityDescription,
+                                    text = item.lineStatuses[0].statusSeverityDescription + "\n" +
+                                            item.lineStatuses[0].reason,
                                     modifier = Modifier.padding(16.dp)
 
                                 )

@@ -9,12 +9,6 @@ import com.google.gson.annotations.SerializedName
     tableName = "trains"
 )
 data class TrainlineItemModel(
-//    @SerializedName("created")
-//    val created: String = "",
-//    @SerializedName("crowding")
-//    val crowding: CrowdingModel = CrowdingModel(),
-//    @SerializedName("disruptions")
-//    val disruptions: List<AnyModel> = listOf(),
     @SerializedName("id")
     val id: String = "",
     @SerializedName("lineStatuses")
@@ -25,11 +19,5 @@ data class TrainlineItemModel(
     val modified: String = "",
     @PrimaryKey
     @SerializedName("name")
-    val name: String = "",
-//    @SerializedName("routeSections")
-//    val routeSections: List<AnyModel> = listOf(),
-    @SerializedName("serviceTypes")
-    val serviceTypes: List<ServiceTypeModel> = listOf(),
-//    @SerializedName("$type")
-//    val type: String = ""
+    val name: String = ""
 )

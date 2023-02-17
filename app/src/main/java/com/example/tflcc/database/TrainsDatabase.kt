@@ -3,8 +3,6 @@ package com.example.tflcc.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.tflcc.model.LineStatuseModel
-import com.example.tflcc.model.Trainline
 import com.example.tflcc.model.TrainlineItemModel
 import com.example.tflcc.util.Converters
 
